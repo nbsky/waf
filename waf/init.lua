@@ -101,6 +101,27 @@ function cookie_attack_check()
     return false
 end
 
+--deny referer
+function referer_check()
+    if config_referer_check == "on" then
+        local REFERER_RULES = get_rule('referer.rule')
+        local USER_REFERER = ngx.var.http_referer
+        if USER_REFERER ~= nil then
+            for _,rule in pairs(REFERER_RULES) do
+                if rule ~="" and rulematch(USER_REFERER,rule,"jo") then
+                    log_record('Deny_Referer',ngx.var.http_referer,"-",rule)
+                    if config_waf_enable == "on" then
+                        waf_output()
+                        return true
+                    end
+                end
+             end
+	 end
+    end
+    return false
+end
+
+
 --deny url
 function url_attack_check()
     if config_url_check == "on" then

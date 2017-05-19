@@ -5,7 +5,7 @@ config_waf_enable = "on"
 --log dir
 config_log_dir = "/tmp"
 --rule setting
-config_rule_dir = "/usr/local/openresty/nginx/conf/waf/rule-config"
+config_rule_dir = "/usr/local/nginx/conf/waf/rule-config"
 --enable/disable white url
 config_white_url_check = "on"
 --enable/disable white ip
@@ -20,6 +20,8 @@ config_url_args_check = "on"
 config_user_agent_check = "on"
 --enable/disable cookie deny filtering
 config_cookie_check = "on"
+--enable/disable referer deny filtering
+config_referer_check = "on"
 --enable/disable cc filtering
 config_cc_check = "on"
 --cc rate the xxx of xxx seconds

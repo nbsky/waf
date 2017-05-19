@@ -6,6 +6,7 @@ function waf_main()
     elseif user_agent_attack_check() then
     elseif cc_attack_check() then
     elseif cookie_attack_check() then
+    elseif referer_check() then
     elseif white_url_check() then
     elseif url_attack_check() then
     elseif url_args_attack_check() then
